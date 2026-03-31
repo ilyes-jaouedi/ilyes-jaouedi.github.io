@@ -27,7 +27,7 @@ const experiences = [
     role: "Computer Vision Engineer — Internship",
     org: "Enova Robotics",
     period: "2023",
-    location: "Tunis, Tunisia",
+    location: "Sousse, Tunisia",
     description:
       "Implemented LiDAR-camera sensor fusion models using PV-RCNN and BiProDet architectures for 3D object detection. Benchmarked and fine-tuned multi-modal perception pipelines on custom robotic datasets.",
     tags: ["PV-RCNN", "BiProDet", "LiDAR-Camera Fusion", "3D Detection"],
