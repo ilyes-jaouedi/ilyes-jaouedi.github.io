@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import HighlightStrip from "@/components/HighlightStrip";
 import About from "@/components/About";
 import Research from "@/components/Research";
 import Publications from "@/components/Publications";
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <HighlightStrip />
         <About />
         <Research />
         <Publications />

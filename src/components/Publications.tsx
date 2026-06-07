@@ -26,6 +26,64 @@ function docTypeToKind(s: string): Publication["type"] {
   return "preprint";
 }
 
+function extractHalId(url: string): string | null {
+  const match = url.match(/hal-\d+/);
+  return match ? match[0] : null;
+}
+
+function PublicationCard({ pub }: { pub: Publication }) {
+  const [imgFailed, setImgFailed] = useState(false);
+
+  const halId = pub.url ? extractHalId(pub.url) : null;
+  const imgSrc = halId ? `/papers/${halId}.png` : null;
+  const showImage = imgSrc && !imgFailed;
+
+  return (
+    <div className="flex gap-5 p-5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all duration-200 group">
+      {/* Thumbnail — auto-matched from /public/papers/{halId}.png */}
+      {showImage && (
+        <div className="shrink-0 w-36 rounded-lg overflow-hidden border border-slate-100 bg-slate-50 self-start">
+          <img
+            src={imgSrc}
+            alt={pub.title}
+            onError={() => setImgFailed(true)}
+            className="w-full h-full object-contain"
+          />
+        </div>
+      )}
+
+      {/* Details */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 flex-wrap mb-2">
+          <span className={`text-xs px-2 py-0.5 rounded border capitalize ${typeColor[pub.type]}`}>
+            {pub.type}
+          </span>
+          {pub.year && <span className="text-xs text-slate-400">{pub.year}</span>}
+        </div>
+
+        <h3 className="text-sm font-semibold text-slate-800 group-hover:text-slate-900 leading-snug mb-1.5">
+          {pub.title}
+        </h3>
+        <p className="text-xs text-slate-500 mb-0.5">{pub.authors.join(", ")}</p>
+        {pub.venue && (
+          <p className="text-xs text-slate-400 italic">{pub.venue}</p>
+        )}
+
+        {pub.url && (
+          <a
+            href={pub.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 mt-2 text-xs text-blue-600 hover:text-blue-700 transition-colors font-medium"
+          >
+            View on HAL <ExternalLink size={11} />
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Publications() {
   const [pubs, setPubs] = useState<Publication[]>([]);
   const [status, setStatus] = useState<"loading" | "done" | "error">("loading");
@@ -56,7 +114,7 @@ export default function Publications() {
   }, []);
 
   return (
-    <SectionWrapper id="publications">
+    <SectionWrapper id="publications" className="bg-slate-50" compact>
       <SectionTitle label="Academic Output" title="Publications" />
 
       {status === "loading" && (
@@ -102,39 +160,9 @@ export default function Publications() {
       )}
 
       {status === "done" && pubs.length > 0 && (
-        <div className="space-y-3">
+        <div className="space-y-4">
           {pubs.map((p, i) => (
-            <div
-              key={i}
-              className="p-5 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-sm transition-all duration-200 group"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 flex-wrap mb-2">
-                    <span className={`text-xs px-2 py-0.5 rounded-full border capitalize ${typeColor[p.type]}`}>
-                      {p.type}
-                    </span>
-                    {p.year && <span className="text-xs text-slate-400">{p.year}</span>}
-                  </div>
-                  <h3 className="text-sm font-semibold text-slate-800 group-hover:text-slate-900 leading-snug">
-                    {p.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-1.5">{p.authors.join(", ")}</p>
-                  {p.venue && <p className="text-xs text-slate-400 italic mt-0.5">{p.venue}</p>}
-                </div>
-                {p.url && (
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 text-slate-400 hover:text-blue-600 transition-colors mt-0.5"
-                    aria-label="View on HAL"
-                  >
-                    <ExternalLink size={15} />
-                  </a>
-                )}
-              </div>
-            </div>
+            <PublicationCard key={i} pub={p} />
           ))}
         </div>
       )}
@@ -144,7 +172,7 @@ export default function Publications() {
           href="https://hal.science/search/index/?q=jaouedi&rows=30"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-blue-600 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
         >
           View full list on HAL <ExternalLink size={13} />
         </a>

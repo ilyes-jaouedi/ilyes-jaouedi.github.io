@@ -1,22 +1,21 @@
 import SectionWrapper from "./SectionWrapper";
 import SectionTitle from "./SectionTitle";
 
-const highlights = [
+const axes = [
   {
-    label: "Problem",
-    text: "Radar and camera are complementary but heterogeneous sensors. Radar offers precise radial velocity and operates in all weather, but has sparse, ambiguous spatial resolution. Cameras provide rich texture and geometry but are blind in fog and darkness. Fusing them effectively requires bridging a fundamental representational gap.",
+    index: "01",
+    label: "Cross-Modal Sensor Alignment",
+    text: "Developing mathematically principled methods to align camera and 4D radar representations across their respective geometric and statistical spaces — bridging the fundamental gap between optical and RF sensing modalities.",
   },
   {
-    label: "Approach",
-    text: "I use Optimal Transport (OT) as a principled framework to align multi-modal sensor distributions across their respective geometric spaces. OT provides a mathematically grounded way to compare and transform probability measures — enabling cross-modal matching that respects the underlying geometry rather than relying on heuristic hand-crafted features.",
+    index: "02",
+    label: "Uncertainty-Aware 3D Perception",
+    text: "Building detection architectures that propagate and quantify fusion uncertainty through to downstream ADAS tasks, enabling reliable 3D object detection and localization under real-world sensor noise and occlusion.",
   },
   {
-    label: "Key Contributions",
-    text: "Development of OT-based cross-modal fusion pipelines for 4D radar and camera data; uncertainty-aware detection architectures for downstream ADAS tasks including 3D object detection.",
-  },
-  {
-    label: "Industrial Context",
-    text: "The PhD is conducted in collaboration with FORVIA (FAURECIA · HELLA), a Tier-1 automotive supplier, applying research directly to real automotive radar datasets.",
+    index: "03",
+    label: "Industrial Validation",
+    text: "Applying and validating research directly on real automotive radar datasets in collaboration with FORVIA, closing the loop between theoretical frameworks and deployment-ready perception systems.",
   },
 ];
 
@@ -37,28 +36,76 @@ export default function Research() {
     <SectionWrapper id="research" className="bg-slate-50">
       <SectionTitle label="PhD Research" title="Research" />
 
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          {highlights.map((h) => (
-            <div key={h.label} className="flex gap-4">
-              <div className="shrink-0 mt-1">
-                <div className="w-2 h-2 rounded-full bg-blue-600 mt-1.5" />
+      {/* Thesis statement */}
+      <p className="text-slate-600 text-base leading-relaxed max-w-3xl mb-10 pl-4 border-l-2 border-blue-500">
+        My PhD investigates the fusion of camera and 4D radar for robust autonomous driving perception.
+        The central challenge — and contribution — is developing mathematically principled methods
+        to align heterogeneous sensor representations, bridging the optical and RF domains using
+        optimal transport theory.
+      </p>
+
+      <div className="grid lg:grid-cols-3 gap-8 items-start">
+        {/* Left: schematic + research axes */}
+        <div className="lg:col-span-2 space-y-8">
+
+          {/* Inline pipeline schematic */}
+          <div className="p-5 rounded-xl bg-white border border-slate-200 overflow-x-auto">
+            <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-4">Pipeline</p>
+            <div className="flex items-center gap-2 min-w-max">
+              {/* Sensors */}
+              <div className="flex flex-col gap-2">
+                <div className="px-3 py-1.5 rounded-lg border border-blue-200 bg-blue-50 text-xs font-mono text-blue-700 text-center whitespace-nowrap">
+                  Camera
+                </div>
+                <div className="px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-xs font-mono text-slate-600 text-center whitespace-nowrap">
+                  4D Radar
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-1">
-                  {h.label}
-                </p>
-                <p className="text-slate-600 leading-relaxed text-sm">{h.text}</p>
+
+              {/* Arrow */}
+              <div className="flex flex-col gap-2 items-center">
+                <span className="text-slate-300 text-sm">→</span>
+                <span className="text-slate-300 text-sm">→</span>
+              </div>
+
+              {/* OT fusion box */}
+              <div className="px-4 py-3 rounded-lg border-2 border-blue-400 bg-blue-50 text-center self-stretch flex items-center">
+                <div>
+                  <p className="text-xs font-mono font-semibold text-blue-700 whitespace-nowrap">Optimal Transport</p>
+                  <p className="text-xs text-blue-500 mt-0.5 whitespace-nowrap">Cross-modal alignment</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <span className="text-slate-300 text-sm">→</span>
+
+              {/* Perception */}
+              <div className="px-4 py-3 rounded-lg border border-slate-200 bg-white text-center self-stretch flex items-center">
+                <div>
+                  <p className="text-xs font-mono text-slate-700 whitespace-nowrap">3D Object Detection</p>
+                  <p className="text-xs text-slate-400 mt-0.5 whitespace-nowrap">Uncertainty-aware</p>
+                </div>
+              </div>
+
+              {/* Arrow */}
+              <span className="text-slate-300 text-sm">→</span>
+
+              {/* ADAS */}
+              <div className="px-4 py-3 rounded-lg border border-slate-200 bg-white text-center self-stretch flex items-center">
+                <div>
+                  <p className="text-xs font-mono text-slate-700 whitespace-nowrap">ADAS Systems</p>
+                  <p className="text-xs text-slate-400 mt-0.5 whitespace-nowrap">All-weather perception</p>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
+
         </div>
 
+        {/* Right: sidebar */}
         <div className="space-y-4">
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm">
-            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">
-              Affiliation
-            </p>
+            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">Affiliation</p>
             <a
               href="https://l2s.centralesupelec.fr/en/"
               target="_blank"
@@ -71,12 +118,15 @@ export default function Research() {
               CentraleSupélec · CNRS · Université Paris-Saclay
             </p>
             <p className="text-xs text-slate-400 mt-0.5">Signal & Statistics Group (GME)</p>
+            <div className="mt-3 pt-3 border-t border-slate-100">
+              <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Supervisors</p>
+              <p className="text-xs text-slate-600 font-medium">Gilles Chardon</p>
+              <p className="text-xs text-slate-600 font-medium mt-0.5">José Picheral</p>
+            </div>
           </div>
 
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm">
-            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">
-              Industrial Partner
-            </p>
+            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">Industrial Partner</p>
             <a
               href="https://www.forvia.com"
               target="_blank"
@@ -85,23 +135,17 @@ export default function Research() {
             >
               FORVIA ↗
             </a>
-            <p className="text-xs text-slate-500 mt-1">
-              FAURECIA · HELLA — Tier-1 Automotive Supplier
-            </p>
-            <p className="text-xs text-slate-400 mt-0.5">
-              4D Radar · Camera Fusion · ADAS Perception
-            </p>
+            <p className="text-xs text-slate-500 mt-1">FAURECIA · HELLA — Tier-1 Automotive Supplier</p>
+            <p className="text-xs text-slate-400 mt-0.5">4D Radar · Camera Fusion · ADAS Perception</p>
           </div>
 
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm">
-            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">
-              Keywords
-            </p>
+            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">Keywords</p>
             <div className="flex flex-wrap gap-2">
               {keywords.map((k) => (
                 <span
                   key={k}
-                  className="text-xs px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700"
+                  className="text-xs px-2.5 py-1 rounded bg-blue-50 border border-blue-200 text-blue-700"
                 >
                   {k}
                 </span>

@@ -8,9 +8,10 @@ interface Props {
   className?: string;
   id?: string;
   delay?: number;
+  compact?: boolean;
 }
 
-export default function SectionWrapper({ children, className = "", id, delay = 0 }: Props) {
+export default function SectionWrapper({ children, className = "", id, delay = 0, compact = false }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -30,7 +31,7 @@ export default function SectionWrapper({ children, className = "", id, delay = 0
       initial={{ opacity: 0, y: 24 }}
       animate={visible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, ease: "easeOut", delay }}
-      className={`py-24 px-6 ${className}`}
+      className={`${compact ? "py-16" : "py-24"} px-6 ${className}`}
     >
       <div className="max-w-6xl mx-auto">{children}</div>
     </motion.section>
