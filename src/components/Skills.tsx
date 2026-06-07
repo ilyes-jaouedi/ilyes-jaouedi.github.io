@@ -3,58 +3,60 @@ import SectionTitle from "./SectionTitle";
 
 const groups = [
   {
-    name: "Research & ML",
+    name: "Signal Processing & Radar",
     items: [
-      "Optimal Transport",
+      "Radar Signal Processing",
+      "4D Radar",
       "Sensor Fusion",
+      "LiDAR-Camera Fusion",
+      "Point Cloud Processing",
+      "Detection & Estimation",
+      "Statistical Signal Processing",
+    ],
+  },
+  {
+    name: "Computer Vision & Deep Learning",
+    items: [
       "Object Detection",
       "3D Perception",
-      "Generative Models",
-      "Probabilistic ML",
       "Deep Learning",
+      "Transformers",
+      "Generative Models",
+    ],
+  },
+  {
+    name: "Mathematical Foundations",
+    items: [
+      "Optimal Transport",
+      "Probabilistic ML",
+      "Convex Optimization",
+      "Differential Geometry",
     ],
   },
   {
     name: "Frameworks & Libraries",
     items: [
       "PyTorch",
-      "scikit-learn",
-      "Hugging Face",
       "OpenCV",
       "NumPy / SciPy",
+      "scikit-learn",
       "ONNX / TensorRT",
+      "Hugging Face",
     ],
   },
   {
-    name: "AI Agents & LLMs",
-    items: [
-      "Google ADK",
-      "Gemini API",
-      "Claude API",
-      "Vertex AI",
-      "Gemini Live API",
-      "LLM Tool Calling",
-      "RAG Pipelines",
-      "Prompt Engineering",
-      "GCP Professional ML Engineer",
-    ],
+    name: "Languages & Tools",
+    items: ["Python", "C++", "MATLAB", "Bash", "Docker", "FastAPI"],
   },
   {
-    name: "Cloud & Infrastructure",
+    name: "Cloud & AI Platforms",
     items: [
       "Google Cloud Platform",
+      "Vertex AI",
       "BigQuery",
-      "Cloud Run",
-      "Cloud Functions",
-      "GCS",
-      "Vertex AI Platform",
-      "Docker",
-      "FastAPI",
+      "Google ADK",
+      "Claude API",
     ],
-  },
-  {
-    name: "Languages",
-    items: ["Python", "TypeScript / JavaScript", "C++", "MATLAB", "SQL", "Bash"],
   },
 ];
 
@@ -75,7 +77,7 @@ export default function Skills() {
               {g.items.map((item) => (
                 <span
                   key={item}
-                  className="text-xs px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700"
+                  className="text-xs px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-slate-700"
                 >
                   {item}
                 </span>

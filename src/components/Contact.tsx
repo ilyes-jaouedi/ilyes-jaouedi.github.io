@@ -13,8 +13,8 @@ const links = [
   {
     icon: <LinkedInIcon size={18} />,
     label: "LinkedIn",
-    value: "ilyes-jaouadi",
-    href: "https://www.linkedin.com/in/ilyes-jaouadi",
+    value: "ilyes-jaouedi",
+    href: "https://www.linkedin.com/in/ilyes-jaouedi",
   },
   {
     icon: <GitHubIcon size={18} />,

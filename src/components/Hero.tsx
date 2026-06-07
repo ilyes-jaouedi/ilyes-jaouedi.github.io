@@ -1,9 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, FileText, ChevronDown } from "lucide-react";
+import { Mail, FileText } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "./Icons";
 import Image from "next/image";
+
+const techTags = [
+  "Optimal Transport",
+  "Camera-Radar Fusion",
+  "4D Radar",
+  "Signal Processing",
+  "PyTorch",
+  "ADAS",
+];
 
 export default function Hero() {
   const scrollTo = (href: string) => {
@@ -14,137 +23,135 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative px-6 overflow-hidden bg-slate-900"
+      className="min-h-screen flex items-center px-6 bg-white border-b border-slate-100"
     >
-      {/* Subtle dot grid */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #93c5fd 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
-      {/* Soft glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative z-10 max-w-4xl w-full text-center">
-        {/* Avatar */}
-        <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative mx-auto mb-8 w-28 h-28 rounded-full border-2 border-blue-400/40 bg-slate-800 flex items-center justify-center overflow-hidden shadow-xl"
-        >
-          <Image
-            src="/photo.png"
-            alt="Ilyes Jaouedi"
-            fill
-            className="object-cover"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <p className="text-blue-400 text-sm font-mono tracking-widest uppercase mb-3">
-            PhD Candidate · CentraleSupélec
-          </p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-tight mb-4">
-            Ilyes Jaouedi
-          </h1>
-          <div className="h-px w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent mx-auto mb-5" />
-          <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-            Researching{" "}
-            <span className="text-slate-200">camera-radar fusion</span> via{" "}
-            <span className="text-blue-400">optimal transport</span> for ADAS
-            at{" "}
-            <a
-              href="https://l2s.centralesupelec.fr/en/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 transition-colors underline decoration-dotted underline-offset-2"
-            >
-              L2S
-            </a>
-            {" "}·{" "}
-            <a
-              href="https://www.forvia.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-300 hover:text-blue-300 transition-colors underline decoration-dotted underline-offset-2"
-            >
-              FORVIA
-            </a>{" "}
-            collaboration
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-        >
-          <button
-            onClick={() => scrollTo("#research")}
-            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-full transition-all duration-200 shadow-lg shadow-blue-600/30"
+      <div className="max-w-5xl mx-auto w-full py-32">
+        <div className="grid md:grid-cols-[1fr_200px] gap-16 items-start">
+          {/* Left: main content */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Read my Research
-          </button>
-          <button
-            onClick={() => scrollTo("#projects")}
-            className="px-6 py-2.5 border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white text-sm rounded-full transition-all duration-200 hover:bg-white/5"
-          >
-            Explore Projects
-          </button>
-          <a
-            href="/cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2.5 border border-slate-600 hover:border-slate-400 text-slate-400 hover:text-slate-200 text-sm rounded-full transition-all duration-200 flex items-center gap-2 hover:bg-white/5"
-          >
-            <FileText size={14} />
-            CV
-          </a>
-        </motion.div>
+            <p className="text-xs font-mono text-blue-600 tracking-widest uppercase mb-5">
+              PhD Researcher · L2S CentraleSupélec / CNRS / Université Paris-Saclay
+            </p>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.05] mb-5">
+              Ilyes<br />Jaouedi
+            </h1>
+            <p className="text-slate-500 text-lg leading-relaxed max-w-xl mb-7">
+              Camera-radar fusion via{" "}
+              <span className="text-slate-800 font-medium">optimal transport</span>
+              {" "}— developing geometry-aware sensor fusion architectures for ADAS, at{" "}
+              <a
+                href="https://l2s.centralesupelec.fr/en/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 transition-colors"
+              >
+                L2S
+              </a>
+              {" "}in collaboration with{" "}
+              <a
+                href="https://www.forvia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-700 hover:text-blue-600 transition-colors"
+              >
+                FORVIA
+              </a>
+              .
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 flex items-center justify-center gap-5"
-        >
-          {[
-            { href: "https://github.com/ilyes-jaouedi", icon: <GitHubIcon size={18} />, label: "GitHub" },
-            { href: "https://www.linkedin.com/in/ilyes-jaouadi", icon: <LinkedInIcon size={18} />, label: "LinkedIn" },
-            { href: "mailto:ilyes.jaouedi@centralesupelec.fr", icon: <Mail size={18} />, label: "Email" },
-          ].map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target={s.href.startsWith("mailto") ? undefined : "_blank"}
-              rel="noopener noreferrer"
-              aria-label={s.label}
-              className="text-slate-500 hover:text-blue-400 transition-colors p-2"
-            >
-              {s.icon}
-            </a>
-          ))}
-        </motion.div>
+            {/* Tech stack tags */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {techTags.map((t) => (
+                <span
+                  key={t}
+                  className="text-xs px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-slate-600 font-mono"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              <button
+                onClick={() => scrollTo("#research")}
+                className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-sm font-medium rounded-lg transition-colors"
+              >
+                Research
+              </button>
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 border border-slate-300 hover:border-slate-500 text-slate-600 hover:text-slate-900 text-sm font-medium rounded-lg transition-colors inline-flex items-center gap-2"
+              >
+                <FileText size={14} />
+                Curriculum Vitae
+              </a>
+              <button
+                onClick={() => scrollTo("#contact")}
+                className="px-5 py-2.5 border border-slate-300 hover:border-slate-500 text-slate-600 hover:text-slate-900 text-sm font-medium rounded-lg transition-colors"
+              >
+                Contact
+              </button>
+            </div>
+
+            {/* Socials */}
+            <div className="flex items-center gap-4">
+              {[
+                {
+                  href: "https://github.com/ilyes-jaouedi",
+                  icon: <GitHubIcon size={18} />,
+                  label: "GitHub",
+                },
+                {
+                  href: "https://www.linkedin.com/in/ilyes-jaouedi",
+                  icon: <LinkedInIcon size={18} />,
+                  label: "LinkedIn",
+                },
+                {
+                  href: "mailto:ilyes.jaouedi@centralesupelec.fr",
+                  icon: <Mail size={18} />,
+                  label: "Email",
+                },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="text-slate-400 hover:text-slate-700 transition-colors"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right: photo — desktop only */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="hidden md:flex flex-col items-center gap-3 pt-10"
+          >
+            <div className="w-44 h-44 relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+              <Image
+                src="/photo.png"
+                alt="Ilyes Jaouedi"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <p className="text-xs text-slate-500 font-medium text-center">Paris, France</p>
+          </motion.div>
+        </div>
       </div>
-
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        onClick={() => scrollTo("#about")}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-600 hover:text-blue-400 transition-colors animate-bounce"
-        aria-label="Scroll down"
-      >
-        <ChevronDown size={24} />
-      </motion.button>
     </section>
   );
 }

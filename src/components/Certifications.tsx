@@ -7,7 +7,7 @@ const certifications = [
   {
     name: "Professional Machine Learning Engineer",
     issuer: "Google Cloud",
-    date: "2024",
+    date: "2025",
     description:
       "Validates the ability to design, build, and productionize ML models to solve business challenges using Google Cloud technologies and established ML practices.",
     badgeImage: "/PMLE.png",

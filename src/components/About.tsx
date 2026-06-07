@@ -44,9 +44,7 @@ export default function About() {
           </p>
           <p>
             I hold an engineering degree from{" "}
-            <span className="text-slate-800">Ecole Polytechnique de Tunisie</span>,
-            where I ranked <span className="text-blue-600 font-semibold">38th out of 1,800</span>{" "}
-            in the national engineering entrance exam.
+            <span className="text-slate-800">Ecole Polytechnique de Tunisie</span>.
           </p>
         </div>
 
@@ -75,7 +73,7 @@ export default function About() {
             {
               icon: <GraduationCap size={17} className="text-blue-600" />,
               title: "Preparatory Cycle — Math & Physics",
-              sub: "IPEIM Monastir · Ranked 38/1800 nationally",
+              sub: "IPEIM Monastir",
               tag: "2019 – 2021",
             },
             {
