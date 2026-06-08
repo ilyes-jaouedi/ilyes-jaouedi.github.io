@@ -24,9 +24,8 @@ export default function Certifications() {
         {certifications.map((cert) => (
           <div
             key={cert.name}
-            className="flex gap-6 p-6 rounded-xl bg-white border border-slate-200 hover:border-yellow-400/60 hover:shadow-md transition-all duration-200 max-w-2xl"
+            className="flex gap-6 p-6 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-yellow-400/60 dark:hover:border-yellow-500/40 hover:shadow-md transition-all duration-200 max-w-2xl"
           >
-            {/* Badge */}
             <div className="shrink-0 w-24 h-24 relative">
               <Image
                 src={cert.badgeImage}
@@ -36,27 +35,26 @@ export default function Certifications() {
               />
             </div>
 
-            {/* Content */}
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs text-slate-400 mb-1 font-mono uppercase tracking-wider">
+                  <p className="text-xs text-slate-400 dark:text-slate-500 mb-1 font-mono uppercase tracking-wider">
                     {cert.issuer}
                   </p>
-                  <h3 className="text-sm font-semibold text-slate-900">{cert.name}</h3>
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{cert.name}</h3>
                 </div>
-                <span className="text-xs px-2.5 py-1 rounded-full bg-yellow-50 border border-yellow-300 text-yellow-700 shrink-0 font-medium">
+                <span className="text-xs px-2.5 py-1 rounded-full bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-300 dark:border-yellow-700/50 text-yellow-700 dark:text-yellow-400 shrink-0 font-medium">
                   {cert.date}
                 </span>
               </div>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
                 {cert.description}
               </p>
               <a
                 href={cert.verifyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 mt-3 text-xs text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                className="inline-flex items-center gap-1.5 mt-3 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
               >
                 Verify on Credly <ExternalLink size={11} />
               </a>

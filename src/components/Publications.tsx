@@ -15,9 +15,9 @@ interface Publication {
 }
 
 const typeColor: Record<Publication["type"], string> = {
-  conference: "bg-blue-50 text-blue-700 border-blue-200",
-  journal:    "bg-emerald-50 text-emerald-700 border-emerald-200",
-  preprint:   "bg-amber-50 text-amber-700 border-amber-200",
+  conference: "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700/50",
+  journal:    "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-700/50",
+  preprint:   "bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-700/50",
 };
 
 function docTypeToKind(s: string): Publication["type"] {
@@ -39,10 +39,9 @@ function PublicationCard({ pub }: { pub: Publication }) {
   const showImage = imgSrc && !imgFailed;
 
   return (
-    <div className="flex gap-5 p-5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all duration-200 group">
-      {/* Thumbnail — auto-matched from /public/papers/{halId}.png */}
+    <div className="flex gap-5 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-all duration-200 group">
       {showImage && (
-        <div className="shrink-0 w-36 rounded-lg overflow-hidden border border-slate-100 bg-slate-50 self-start">
+        <div className="shrink-0 w-36 rounded-lg overflow-hidden border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-700 self-start">
           <img
             src={imgSrc}
             alt={pub.title}
@@ -52,21 +51,20 @@ function PublicationCard({ pub }: { pub: Publication }) {
         </div>
       )}
 
-      {/* Details */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap mb-2">
           <span className={`text-xs px-2 py-0.5 rounded border capitalize ${typeColor[pub.type]}`}>
             {pub.type}
           </span>
-          {pub.year && <span className="text-xs text-slate-400">{pub.year}</span>}
+          {pub.year && <span className="text-xs text-slate-400 dark:text-slate-500">{pub.year}</span>}
         </div>
 
-        <h3 className="text-sm font-semibold text-slate-800 group-hover:text-slate-900 leading-snug mb-1.5">
+        <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-slate-900 dark:group-hover:text-white leading-snug mb-1.5">
           {pub.title}
         </h3>
-        <p className="text-xs text-slate-500 mb-0.5">{pub.authors.join(", ")}</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-0.5">{pub.authors.join(", ")}</p>
         {pub.venue && (
-          <p className="text-xs text-slate-400 italic">{pub.venue}</p>
+          <p className="text-xs text-slate-400 dark:text-slate-500 italic">{pub.venue}</p>
         )}
 
         {pub.url && (
@@ -74,7 +72,7 @@ function PublicationCard({ pub }: { pub: Publication }) {
             href={pub.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 mt-2 text-xs text-blue-600 hover:text-blue-700 transition-colors font-medium"
+            className="inline-flex items-center gap-1 mt-2 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium"
           >
             View on HAL <ExternalLink size={11} />
           </a>
@@ -114,25 +112,25 @@ export default function Publications() {
   }, []);
 
   return (
-    <SectionWrapper id="publications" className="bg-slate-50" compact>
+    <SectionWrapper id="publications" className="bg-slate-50 dark:bg-slate-900" compact>
       <SectionTitle label="Academic Output" title="Publications" />
 
       {status === "loading" && (
-        <div className="flex items-center justify-center py-16 text-slate-400 gap-2">
+        <div className="flex items-center justify-center py-16 text-slate-400 dark:text-slate-500 gap-2">
           <Loader2 size={18} className="animate-spin" />
           <span className="text-sm">Fetching from HAL…</span>
         </div>
       )}
 
       {status === "error" && (
-        <div className="p-6 rounded-xl bg-white border border-slate-200 text-center">
-          <p className="text-slate-500 text-sm">
+        <div className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
             Could not reach HAL. View publications directly at{" "}
             <a
               href="https://hal.science/search/index/?q=jaouedi&rows=30"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               hal.science
             </a>
@@ -142,20 +140,20 @@ export default function Publications() {
       )}
 
       {status === "done" && pubs.length === 0 && (
-        <div className="p-8 rounded-xl bg-white border border-slate-200 text-center shadow-sm">
-          <p className="text-slate-500 text-sm">
+        <div className="p-8 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center shadow-sm">
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
             Publications will appear here automatically once indexed on{" "}
             <a
               href="https://hal.science/search/index/?q=jaouedi&rows=30"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               HAL
             </a>
             .
           </p>
-          <p className="text-slate-400 text-xs mt-2">PhD research in progress — papers in preparation.</p>
+          <p className="text-slate-400 dark:text-slate-500 text-xs mt-2">PhD research in progress — papers in preparation.</p>
         </div>
       )}
 
@@ -172,7 +170,7 @@ export default function Publications() {
           href="https://hal.science/search/index/?q=jaouedi&rows=30"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors"
         >
           View full list on HAL <ExternalLink size={13} />
         </a>

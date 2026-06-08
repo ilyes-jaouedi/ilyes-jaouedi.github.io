@@ -64,14 +64,6 @@ const projects: Project[] = [
     featured: false,
   },
   {
-    title: "See Further Than CFAR",
-    description:
-      "Data-driven radar target detection for automotive ADAS, going beyond classical signal processing baselines. Includes a vision-enhanced extension leveraging camera priors.",
-    tags: ["Radar Detection", "ADAS", "Deep Learning", "RADIal"],
-    category: "Sensor Fusion",
-    featured: false,
-  },
-  {
     title: "Image Captioning — ViT + GPT-2",
     description:
       "End-to-end image captioning model combining Vision Transformer (ViT) for visual feature extraction with GPT-2 for autoregressive text generation. Trained on COCO captions with cross-attention bridging between the two modalities.",
@@ -144,8 +136,8 @@ export default function Projects() {
             onClick={() => setActive(c)}
             className={`px-4 py-1.5 rounded-lg text-sm transition-all duration-200 border ${
               active === c
-                ? "bg-slate-900 border-slate-900 text-white shadow-sm"
-                : "border-slate-200 text-slate-500 hover:text-slate-800 hover:border-slate-300 bg-white"
+                ? "bg-slate-900 dark:bg-white border-slate-900 dark:border-white text-white dark:text-slate-900 shadow-sm"
+                : "border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-500 bg-white dark:bg-slate-800"
             }`}
           >
             {c}
@@ -165,21 +157,21 @@ export default function Projects() {
           {filtered.map((p) => (
             <div
               key={p.title}
-              className="flex flex-col p-5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all duration-200 group"
+              className="flex flex-col p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-all duration-200 group"
             >
               <div className="flex items-start justify-between gap-2 mb-3">
                 <div className="flex items-center gap-2 flex-wrap">
                   {p.ongoing && (
-                    <span className="text-xs px-2 py-0.5 rounded bg-blue-50 border border-blue-200 text-blue-700">
+                    <span className="text-xs px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700/50 text-blue-700 dark:text-blue-300">
                       Ongoing
                     </span>
                   )}
                   {p.featured && !p.ongoing && (
-                    <span className="text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-600">
+                    <span className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300">
                       Featured
                     </span>
                   )}
-                  <span className="text-xs text-slate-400">{p.category}</span>
+                  <span className="text-xs text-slate-400 dark:text-slate-500">{p.category}</span>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   {p.github && (
@@ -187,7 +179,7 @@ export default function Projects() {
                       href={p.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-slate-700 transition-colors"
+                      className="text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
                       aria-label="GitHub"
                     >
                       <GitHubIcon size={15} />
@@ -198,7 +190,7 @@ export default function Projects() {
                       href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-600 transition-colors"
+                      className="text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       aria-label="View project"
                     >
                       <ExternalLink size={14} />
@@ -207,16 +199,16 @@ export default function Projects() {
                 </div>
               </div>
 
-              <h3 className="text-sm font-semibold text-slate-800 group-hover:text-slate-900 transition-colors mb-2 leading-snug">
+              <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-slate-900 dark:group-hover:text-white transition-colors mb-2 leading-snug">
                 {p.title}
               </h3>
-              <p className="text-xs text-slate-500 leading-relaxed flex-1">{p.description}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex-1">{p.description}</p>
 
               <div className="flex flex-wrap gap-1.5 mt-4">
                 {p.tags.map((t) => (
                   <span
                     key={t}
-                    className="text-xs px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-600"
+                    className="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300"
                   >
                     {t}
                   </span>
@@ -232,7 +224,7 @@ export default function Projects() {
           href="https://github.com/ilyes-jaouedi"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-800 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors"
         >
           More on GitHub <ExternalLink size={13} />
         </a>

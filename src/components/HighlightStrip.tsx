@@ -7,19 +7,19 @@ const items = [
 
 export default function HighlightStrip() {
   return (
-    <div className="border-y border-slate-100 bg-slate-50/60">
+    <div className="border-y border-slate-100 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60">
       <div className="max-w-5xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-6">
         {items.map((item, i) => (
           <div
             key={i}
             className={`flex flex-col gap-0.5 ${
-              i < items.length - 1 ? "md:border-r md:border-slate-200 md:pr-6" : ""
+              i < items.length - 1 ? "md:border-r md:border-slate-200 dark:md:border-slate-700 md:pr-6" : ""
             }`}
           >
-            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider">
+            <p className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider">
               {item.label}
             </p>
-            <p className="text-sm font-medium text-slate-800 leading-snug">
+            <p className="text-sm font-medium text-slate-800 dark:text-slate-200 leading-snug">
               {item.value}
             </p>
           </div>

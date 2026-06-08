@@ -62,22 +62,22 @@ const groups = [
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills" className="bg-slate-50">
+    <SectionWrapper id="skills" className="bg-slate-50 dark:bg-slate-800/40">
       <SectionTitle label="Expertise" title="Skills & Technologies" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {groups.map((g) => (
           <div
             key={g.name}
-            className="p-5 rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-sm transition-all duration-200"
+            className="p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-sm transition-all duration-200"
           >
-            <p className="text-xs font-mono text-blue-600 uppercase tracking-wider mb-3">
+            <p className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">
               {g.name}
             </p>
             <div className="flex flex-wrap gap-1.5">
               {g.items.map((item) => (
                 <span
                   key={item}
-                  className="text-xs px-2.5 py-1 rounded bg-slate-100 border border-slate-200 text-slate-700"
+                  className="text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300"
                 >
                   {item}
                 </span>

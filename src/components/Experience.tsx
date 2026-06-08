@@ -37,52 +37,50 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <SectionWrapper id="experience" className="bg-slate-50">
+    <SectionWrapper id="experience" className="bg-slate-50 dark:bg-slate-900">
       <SectionTitle label="Career" title="Experience" />
       <div className="relative">
-        {/* Timeline line */}
-        <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-blue-600/60 via-slate-200 to-transparent hidden sm:block" />
+        <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-blue-600/60 via-slate-200 to-transparent hidden sm:block dark:via-slate-700" />
 
         <div className="space-y-5">
           {experiences.map((e) => (
             <div key={e.role} className="sm:pl-12 relative">
-              {/* Dot */}
               <div
                 className={`hidden sm:block absolute left-[13px] top-2 w-[6px] h-[6px] rounded-full border-2 ${
                   e.current
                     ? "bg-blue-600 border-blue-600 shadow-[0_0_6px_rgba(37,99,235,0.5)]"
-                    : "bg-white border-slate-300"
+                    : "bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-600"
                 }`}
               />
 
-              <div className="p-5 rounded-xl bg-white border border-slate-200 hover:border-blue-200 hover:shadow-sm transition-all duration-200">
+              <div className="p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-600 hover:shadow-sm transition-all duration-200">
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                   <div>
-                    <h3 className="text-sm font-semibold text-slate-900">{e.role}</h3>
+                    <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{e.role}</h3>
                     {e.orgUrl ? (
                       <a
                         href={e.orgUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs text-blue-600 hover:text-blue-700 transition-colors mt-0.5 inline-block"
+                        className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mt-0.5 inline-block"
                       >
                         {e.org} ↗
                       </a>
                     ) : (
-                      <p className="text-xs text-blue-600 mt-0.5">{e.org}</p>
+                      <p className="text-xs text-blue-600 dark:text-blue-400 mt-0.5">{e.org}</p>
                     )}
                   </div>
                   <div className="text-right shrink-0">
-                    <p className="text-xs text-slate-500">{e.period}</p>
-                    <p className="text-xs text-slate-400">{e.location}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{e.period}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500">{e.location}</p>
                   </div>
                 </div>
-                <p className="text-sm text-slate-600 leading-relaxed mt-2">{e.description}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-2">{e.description}</p>
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   {e.tags.map((t) => (
                     <span
                       key={t}
-                      className="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600"
+                      className="text-xs px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300"
                     >
                       {t}
                     </span>
