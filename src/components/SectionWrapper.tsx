@@ -28,10 +28,10 @@ export default function SectionWrapper({ children, className = "", id, delay = 0
     <motion.section
       ref={ref}
       id={id}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0.6, y: 12 }}
       animate={visible ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, ease: "easeOut", delay }}
-      className={`${compact ? "py-16" : "py-24"} px-6 ${className}`}
+      transition={{ duration: 0.4, ease: "easeOut", delay }}
+      className={`${compact ? "py-10 sm:py-12" : "py-12 sm:py-16"} px-6 ${className}`}
     >
       <div className="max-w-6xl mx-auto">{children}</div>
     </motion.section>

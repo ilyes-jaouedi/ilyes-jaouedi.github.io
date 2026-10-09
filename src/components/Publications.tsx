@@ -20,6 +20,11 @@ const typeColor: Record<Publication["type"], string> = {
   preprint:   "bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-700/50",
 };
 
+const otherOutputs = [
+  "Two French patent applications with FORVIA and CentraleSupélec: fast 3D radar imaging, and camera–radar fusion (filing in progress).",
+  "Co-authored paper on sparse training of statistical models, under review at AISTATS 2027.",
+];
+
 function docTypeToKind(s: string): Publication["type"] {
   if (s === "ART")  return "journal";
   if (s === "COMM") return "conference";
@@ -164,6 +169,20 @@ export default function Publications() {
           ))}
         </div>
       )}
+
+      <div className="mt-6 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+        <p className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">
+          Patents &amp; work under review
+        </p>
+        <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+          {otherOutputs.map((o) => (
+            <li key={o} className="flex gap-2">
+              <span className="text-slate-300 dark:text-slate-600">•</span>
+              <span>{o}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <div className="mt-6 text-center">
         <a

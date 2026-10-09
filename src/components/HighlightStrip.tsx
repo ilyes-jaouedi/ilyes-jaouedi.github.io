@@ -1,6 +1,6 @@
 const items = [
   { label: "PhD Candidate", value: "Since Oct. 2024" },
-  { label: "Laboratory", value: "L2S · CentraleSupélec / CNRS / Université Paris-Saclay" },
+  { label: "Available", value: "Permanent role in Paris from mid-2027" },
   { label: "Industry", value: "FORVIA Collaboration" },
   { label: "Certified", value: "GCP Professional ML Engineer" },
 ];

@@ -6,10 +6,10 @@ import { GitHubIcon, LinkedInIcon } from "./Icons";
 import Image from "next/image";
 
 const techTags = [
-  "Optimal Transport",
+  "Radar Signal Processing",
   "Camera-Radar Fusion",
-  "4D Radar",
-  "Signal Processing",
+  "Vision Foundation Models",
+  "Optimal Transport",
   "PyTorch",
   "ADAS",
 ];
@@ -23,10 +23,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center px-6 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800"
+      className="md:min-h-screen flex items-center px-6 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800"
     >
-      <div className="max-w-5xl mx-auto w-full py-32">
-        <div className="grid md:grid-cols-[1fr_200px] gap-16 items-start">
+      <div className="max-w-5xl mx-auto w-full pt-24 pb-12 md:py-32">
+        <div className="grid md:grid-cols-[1fr_200px] gap-8 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,9 +39,9 @@ export default function Hero() {
               Ilyes<br />Jaouedi
             </h1>
             <p className="text-slate-500 dark:text-slate-300 text-lg leading-relaxed max-w-xl mb-7">
-              Camera-radar fusion via{" "}
-              <span className="text-slate-800 dark:text-slate-100 font-medium">optimal transport</span>
-              {" "}— developing geometry-aware sensor fusion architectures for ADAS, at{" "}
+              Machine learning and signal processing for{" "}
+              <span className="text-slate-800 dark:text-slate-100 font-medium">radar and camera perception</span>
+              {" "}— from raw radar signals to physics-grounded fusion with vision foundation models, at{" "}
               <a
                 href="https://l2s.centralesupelec.fr/en/"
                 target="_blank"
@@ -133,9 +133,9 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="hidden md:flex flex-col items-center gap-3 pt-10"
+            className="order-first md:order-none flex flex-col items-start md:items-center gap-3 md:pt-10"
           >
-            <div className="w-44 h-44 relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 shadow-sm">
+            <div className="w-28 h-28 md:w-44 md:h-44 relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 shadow-sm">
               <Image
                 src="/photo.png"
                 alt="Ilyes Jaouedi"
@@ -143,7 +143,7 @@ export default function Hero() {
                 className="object-cover"
               />
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium text-center">Paris, France</p>
+            <p className="hidden md:block text-xs text-slate-500 dark:text-slate-400 font-medium text-center">Paris, France</p>
           </motion.div>
         </div>
       </div>

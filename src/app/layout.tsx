@@ -14,10 +14,14 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const SITE_URL = "https://ilyes-jaouedi.github.io";
+
 export const metadata: Metadata = {
-  title: "Ilyes Jaouedi — PhD Candidate",
+  metadataBase: new URL(SITE_URL),
+  title: "Ilyes Jaouedi | Machine Learning & Radar Perception Researcher",
+  alternates: { canonical: "/" },
   description:
-    "PhD candidate at L2S, CentraleSupélec. Research at the intersection of computer vision, radar signal processing, and mathematical optimization for ADAS.",
+    "PhD candidate at L2S, CentraleSupélec, with FORVIA. Machine learning and signal processing for radar and camera perception: 3D radar imaging, vision foundation models and optimal-transport sensor fusion for ADAS.",
   keywords: [
     "Ilyes Jaouedi",
     "camera radar fusion",
@@ -27,13 +31,18 @@ export const metadata: Metadata = {
     "L2S",
     "machine learning",
     "sensor fusion",
+    "radar machine learning",
+    "vision foundation models",
   ],
   authors: [{ name: "Ilyes Jaouedi" }],
   openGraph: {
-    title: "Ilyes Jaouedi — PhD Candidate",
+    title: "Ilyes Jaouedi | Machine Learning & Radar Perception Researcher",
     description:
-      "Camera-radar fusion for ADAS. PhD at L2S, CentraleSupélec.",
-    type: "website",
+      "PhD candidate at L2S, CentraleSupélec, with FORVIA: machine learning and signal processing for radar and camera perception.",
+    url: SITE_URL,
+    siteName: "Ilyes Jaouedi",
+    images: ["/photo.png"],
+    type: "profile",
   },
 };
 

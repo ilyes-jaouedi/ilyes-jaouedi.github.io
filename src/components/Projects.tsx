@@ -7,7 +7,7 @@ import { GitHubIcon } from "./Icons";
 import SectionWrapper from "./SectionWrapper";
 import SectionTitle from "./SectionTitle";
 
-type Category = "All" | "Sensor Fusion" | "Perception & ML" | "AI Agents";
+type Category = "All" | "Radar & ML" | "Computer Vision" | "AI Agents";
 
 interface Project {
   title: string;
@@ -22,54 +22,28 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Acoustics-Camera Fusion for 3D Source Localization",
-    description:
-      "Sensor array and camera fusion for 3D acoustic source localization in real-world environments. Published at IEEE ICASSP 2026 in collaboration with L2S, CentraleSupélec.",
-    tags: ["Sensor Fusion", "Source Localization", "Optimal Transport", "PyTorch"],
-    category: "Sensor Fusion",
-    link: "https://hal.science/hal-05572212v1",
-    featured: true,
-    ongoing: false,
-  },
-  {
-    title: "High-Resolution Radar Imaging",
-    description:
-      "High-resolution radar point cloud generation from raw automotive radar ADC data. Evaluated on the RADIal real-world driving dataset.",
-    tags: ["4D Radar", "Point Cloud", "ADAS", "RADIal"],
-    category: "Sensor Fusion",
-    featured: true,
-  },
-  {
-    title: "Radar-Camera Fusion for Autonomous Driving",
-    description:
-      "Fusion of high-resolution radar imaging with camera-derived visual priors for robust 3D perception in autonomous driving scenarios.",
-    tags: ["Radar-Camera Fusion", "Optimal Transport", "ADAS", "Autonomous Driving"],
-    category: "Sensor Fusion",
-    featured: true,
-  },
-  {
     title: "RadarFlows — Synthetic Radar Generation",
     description:
       "Generative model for realistic synthetic radar map synthesis conditioned on camera observations and 3D scene detections. Designed as a data augmentation pipeline for automotive radar perception.",
     tags: ["Generative Models", "Radar", "Data Augmentation", "Autonomous Driving"],
-    category: "Sensor Fusion",
+    category: "Radar & ML",
     featured: false,
   },
   {
-    title: "PowerAnything — Visual Radar Power Prediction",
+    title: "Radar Foundation Model",
     description:
-      "Predicts dense radar received-power maps from RGB camera frames, providing a learned visual prior for cross-modal radar-camera fusion pipelines.",
-    tags: ["Camera-Radar", "Vision Foundation Models", "Deep Learning", "RADIal"],
-    category: "Sensor Fusion",
-    featured: false,
+      "Self-supervised pretraining of a transformer encoder directly on raw 4D radar cubes (range, Doppler, azimuth, elevation), with no lidar, camera or labels, then fine-tuned for occupancy, segmentation and ego-motion.",
+    tags: ["Self-Supervised Learning", "Masked Autoencoders", "Radar", "PyTorch"],
+    category: "Radar & ML",
+    featured: true,
+    ongoing: true,
   },
   {
     title: "Image Captioning — ViT + GPT-2",
     description:
       "End-to-end image captioning model combining Vision Transformer (ViT) for visual feature extraction with GPT-2 for autoregressive text generation. Trained on COCO captions with cross-attention bridging between the two modalities.",
     tags: ["ViT", "GPT-2", "PyTorch", "COCO", "Transformers"],
-    category: "Perception & ML",
-    github: "https://github.com/ilyes-jaouedi",
+    category: "Computer Vision",
     featured: true,
   },
   {
@@ -77,36 +51,8 @@ const projects: Project[] = [
     description:
       "Custom YOLOv8 fine-tuning pipeline for domain-specific object detection. Includes data augmentation, custom anchor optimization, TensorRT export for inference optimization, and a real-time video inference demo.",
     tags: ["YOLOv8", "PyTorch", "TensorRT", "OpenCV", "Python"],
-    category: "Perception & ML",
-    github: "https://github.com/ilyes-jaouedi",
+    category: "Computer Vision",
     featured: true,
-  },
-  {
-    title: "Gemini Voice Orchestrator",
-    description:
-      "Production-grade real-time voice agent built on Gemini 2.0 Flash Live API. Features bidirectional audio, multi-system tool orchestration (CRM, inventory, logistics), real-time UI synchronization via WebSockets, and parallel tool routing with asynchronous task queuing.",
-    tags: ["Gemini Live API", "FastAPI", "WebSockets", "Next.js", "Python"],
-    category: "AI Agents",
-    github: "https://github.com/ilyes-jaouedi",
-    featured: false,
-  },
-  {
-    title: "AI Presentation Agent",
-    description:
-      "Autonomous agent that generates polished PowerPoint presentations by merging brand templates with content files. Uses Google ADK and Claude to write Python code, inspect slides visually, and iterate until output is correct — including animated GIF preservation and cross-file shape transplanting.",
-    tags: ["Google ADK", "Claude API", "python-pptx", "Vision", "Python"],
-    category: "AI Agents",
-    github: "https://github.com/ilyes-jaouedi",
-    featured: false,
-  },
-  {
-    title: "Financial Intelligence Copilot",
-    description:
-      "Tool-augmented LLM agent for financial fraud investigation. Understands analyst requests, executes complex BigQuery queries, detects layering patterns and round-trip transactions, and produces structured investigative reports with temporal fund-flow analysis.",
-    tags: ["Google ADK", "BigQuery", "FastAPI", "LLM Agents", "Python"],
-    category: "AI Agents",
-    github: "https://github.com/ilyes-jaouedi",
-    featured: false,
   },
   {
     title: "Batbot — Personal AI Assistant",
@@ -114,15 +60,24 @@ const projects: Project[] = [
       "Privacy-first AI assistant accessible via Telegram. Integrates local Whisper speech recognition, ChromaDB RAG for personal documents, email management (Gmail), academic paper search (arXiv, IEEE Xplore), NotebookLM automation, and safe terminal execution.",
     tags: ["Google ADK", "Whisper", "ChromaDB", "Telegram", "Python"],
     category: "AI Agents",
-    github: "https://github.com/ilyes-jaouedi",
+    github: "https://github.com/ilyes-jaouedi/batbot",
+    featured: false,
+  },
+  {
+    title: "FPL AI Assistant",
+    description:
+      "Fantasy Premier League agent combining XGBoost expected-points predictions, linear-programming squad optimisation and Gemini reasoning.",
+    tags: ["Google ADK", "XGBoost", "Linear Programming", "Gemini", "Python"],
+    category: "AI Agents",
+    github: "https://github.com/ilyes-jaouedi/fpl-ai-assistant",
     featured: false,
   },
 ];
 
-const categories: Category[] = ["All", "Sensor Fusion", "Perception & ML", "AI Agents"];
+const categories: Category[] = ["All", "Radar & ML", "Computer Vision", "AI Agents"];
 
 export default function Projects() {
-  const [active, setActive] = useState<Category>("Sensor Fusion");
+  const [active, setActive] = useState<Category>("All");
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (

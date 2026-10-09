@@ -4,13 +4,36 @@ import SectionTitle from "./SectionTitle";
 const keywords = [
   "Optimal Transport",
   "Camera-Radar Fusion",
-  "4D Radar",
-  "Object Detection",
-  "ADAS / Autonomous Driving",
-  "Deep Learning",
-  "Probabilistic Geometry",
+  "Automotive Radar",
+  "3D Radar Imaging",
+  "Vision Foundation Models",
+  "Array Processing",
+  "Estimation Theory",
+  "ADAS",
   "PyTorch",
-  "Sensor Fusion",
+];
+
+const contributions = [
+  {
+    title: "Sensor array and camera fusion",
+    text: "Array processing regularised by unbalanced optimal transport toward camera detections, with Cramér–Rao bounds proving that fusion beats either sensor alone. Validated on a real microphone array.",
+    tag: "GRETSI 2025 · IEEE ICASSP 2026",
+  },
+  {
+    title: "Fast high-resolution 3D radar imaging",
+    text: "Dense range–azimuth–elevation imaging directly from raw radar data on million-voxel grids, validated on TI mmWave hardware in an anechoic chamber and on the RADIal automotive dataset.",
+    tag: "Patent application with FORVIA",
+  },
+  {
+    title: "Radar reflectivity from a single image",
+    text: "Vision foundation models predict 77 GHz radar cross-section from one RGB image, trained with labels derived from radar physics instead of human annotation.",
+    tag: "Paper in preparation",
+  },
+  {
+    title: "Camera–radar fusion on real driving data",
+    text: "A training-free pipeline that fuses raw radar signals with camera segmentations and learned reflectivity priors, evaluated on RADIal with a dedicated protocol.",
+    tag: "Patent application with FORVIA",
+  },
 ];
 
 export default function Research() {
@@ -19,10 +42,9 @@ export default function Research() {
       <SectionTitle label="PhD Research" title="Research" />
 
       <p className="text-slate-600 dark:text-slate-300 text-base leading-relaxed max-w-3xl mb-10 pl-4 border-l-2 border-blue-500">
-        My PhD investigates the fusion of camera and 4D radar for robust autonomous driving perception.
-        The central challenge — and contribution — is developing mathematically principled methods
-        to align heterogeneous sensor representations, bridging the optical and RF domains using
-        optimal transport theory.
+        My PhD builds camera–radar fusion that is grounded in physics and needs little or no training data.
+        It goes from raw radar signals to fused 3D radar images: fast high-resolution radar imaging, a camera
+        model that predicts how objects reflect radar, and optimal transport to couple the two sensors.
       </p>
 
       <div className="grid lg:grid-cols-3 gap-8 items-start">
@@ -35,7 +57,7 @@ export default function Research() {
                   Camera
                 </div>
                 <div className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-xs font-mono text-slate-600 dark:text-slate-300 text-center whitespace-nowrap">
-                  4D Radar
+                  Raw radar
                 </div>
               </div>
 
@@ -47,7 +69,7 @@ export default function Research() {
               <div className="px-4 py-3 rounded-lg border-2 border-blue-400 dark:border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-center self-stretch flex items-center">
                 <div>
                   <p className="text-xs font-mono font-semibold text-blue-700 dark:text-blue-300 whitespace-nowrap">Optimal Transport</p>
-                  <p className="text-xs text-blue-500 dark:text-blue-400 mt-0.5 whitespace-nowrap">Cross-modal alignment</p>
+                  <p className="text-xs text-blue-500 dark:text-blue-400 mt-0.5 whitespace-nowrap">Physics-based coupling</p>
                 </div>
               </div>
 
@@ -55,8 +77,8 @@ export default function Research() {
 
               <div className="px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-center self-stretch flex items-center">
                 <div>
-                  <p className="text-xs font-mono text-slate-700 dark:text-slate-200 whitespace-nowrap">3D Object Detection</p>
-                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 whitespace-nowrap">Uncertainty-aware</p>
+                  <p className="text-xs font-mono text-slate-700 dark:text-slate-200 whitespace-nowrap">3D Radar Image</p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 whitespace-nowrap">Camera-guided</p>
                 </div>
               </div>
 
@@ -69,6 +91,19 @@ export default function Research() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {contributions.map((c) => (
+              <div
+                key={c.title}
+                className="p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col"
+              >
+                <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">{c.title}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed flex-1">{c.text}</p>
+                <p className="text-xs font-mono text-blue-600 dark:text-blue-400 mt-3">{c.tag}</p>
+              </div>
+            ))}
           </div>
         </div>
 

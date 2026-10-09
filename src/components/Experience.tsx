@@ -3,20 +3,20 @@ import SectionTitle from "./SectionTitle";
 
 const experiences = [
   {
-    role: "PhD Candidate — Sensor Fusion for ADAS",
+    role: "PhD Candidate — Camera–Radar Fusion for ADAS",
     org: "L2S, CentraleSupélec / CNRS / Université Paris-Saclay",
     orgUrl: "https://l2s.centralesupelec.fr/en/",
     period: "Oct 2024 – Present",
     location: "Gif-sur-Yvette, France",
     description:
-      "Researching camera-radar fusion via optimal transport theory for Advanced Driver Assistance Systems. Developing OT-based cross-modal alignment methods for 4D radar and camera data. Industrial collaboration with FORVIA.",
-    tags: ["Optimal Transport", "PyTorch", "4D Radar", "ADAS", "Computer Vision"],
+      "Camera–radar fusion for driver assistance, in an industrial chair with FORVIA. Built fast high-resolution 3D radar imaging from raw ADC data, validated on TI mmWave hardware in the FORVIA anechoic chamber and on the RADIal dataset; a camera model that predicts 77 GHz radar reflectivity with vision foundation models trained on physics-derived labels; and optimal-transport fusion with Cramér–Rao guarantees (IEEE ICASSP 2026). Two patent applications with FORVIA. Co-supervised two interns and taught wave-physics tutorials.",
+    tags: ["Radar Signal Processing", "Vision Foundation Models", "Optimal Transport", "PyTorch", "ADAS"],
     current: true,
   },
   {
-    role: "Computer Vision Researcher — Internship",
+    role: "Computer Vision Research Intern — Final-Year Project",
     org: "CAOR, Mines Paris – PSL",
-    period: "2024",
+    period: "Feb – Jul 2024",
     location: "Paris, France",
     description:
       "Developed a model for extracting and reconstructing vehicle trajectories from traffic camera video streams fused with LiDAR data. Worked on 3D reconstruction and tracking pipelines for urban traffic analysis.",
@@ -26,7 +26,7 @@ const experiences = [
   {
     role: "Computer Vision Engineer — Internship",
     org: "Enova Robotics",
-    period: "2023",
+    period: "Summer 2023",
     location: "Sousse, Tunisia",
     description:
       "Implemented LiDAR-camera sensor fusion models using PV-RCNN and BiProDet architectures for 3D object detection. Benchmarked and fine-tuned multi-modal perception pipelines on custom robotic datasets.",

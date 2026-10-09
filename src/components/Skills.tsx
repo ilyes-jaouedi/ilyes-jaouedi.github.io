@@ -1,12 +1,14 @@
 import SectionWrapper from "./SectionWrapper";
 import SectionTitle from "./SectionTitle";
+import Certifications from "./Certifications";
 
 const groups = [
   {
     name: "Signal Processing & Radar",
     items: [
       "Radar Signal Processing",
-      "4D Radar",
+      "FMCW / MIMO Radar",
+      "Array Processing",
       "Sensor Fusion",
       "LiDAR-Camera Fusion",
       "Point Cloud Processing",
@@ -22,6 +24,8 @@ const groups = [
       "Deep Learning",
       "Transformers",
       "Generative Models",
+      "Vision Foundation Models",
+      "Self-Supervised Learning",
     ],
   },
   {
@@ -30,7 +34,7 @@ const groups = [
       "Optimal Transport",
       "Probabilistic ML",
       "Convex Optimization",
-      "Differential Geometry",
+      "Estimation Theory",
     ],
   },
   {
@@ -86,6 +90,7 @@ export default function Skills() {
           </div>
         ))}
       </div>
+      <Certifications />
     </SectionWrapper>
   );
 }

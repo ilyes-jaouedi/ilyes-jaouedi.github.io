@@ -1,5 +1,3 @@
-import SectionWrapper from "./SectionWrapper";
-import SectionTitle from "./SectionTitle";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
@@ -18,15 +16,15 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <SectionWrapper id="certifications">
-      <SectionTitle label="Credentials" title="Certifications" />
+    <div id="certifications" className="mt-8">
+      <p className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">Certification</p>
       <div className="flex flex-col gap-4">
         {certifications.map((cert) => (
           <div
             key={cert.name}
-            className="flex gap-6 p-6 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-yellow-400/60 dark:hover:border-yellow-500/40 hover:shadow-md transition-all duration-200 max-w-2xl"
+            className="flex gap-5 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-yellow-400/60 dark:hover:border-yellow-500/40 hover:shadow-md transition-all duration-200 max-w-2xl"
           >
-            <div className="shrink-0 w-24 h-24 relative">
+            <div className="shrink-0 w-16 h-16 relative">
               <Image
                 src={cert.badgeImage}
                 alt={`${cert.name} badge`}
@@ -62,6 +60,6 @@ export default function Certifications() {
           </div>
         ))}
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

@@ -44,7 +44,13 @@ export default function About() {
           </p>
           <p>
             I hold an engineering degree from{" "}
-            <span className="text-slate-800 dark:text-slate-100">Ecole Polytechnique de Tunisie</span>.
+            <span className="text-slate-800 dark:text-slate-100">Ecole Polytechnique de Tunisie</span>, where
+            I graduated first in my class.
+          </p>
+          <p>
+            I am looking for a permanent role in{" "}
+            <span className="text-slate-800 dark:text-slate-100">machine learning for radar and perception</span>{" "}
+            in Paris, starting mid-2027.
           </p>
         </div>
 
