@@ -1,0 +1,79 @@
+%----------------------------------------------------------------------------------------
+% Ilyes Jaouedi — CV, ML / AI / DL Research version
+%----------------------------------------------------------------------------------------
+\input{cv-common}
+
+\begin{document}
+
+\cvheader{Research Scientist --- Machine Learning, Multimodal Perception \& Optimal Transport}
+
+\noindent
+PhD candidate at L2S (CentraleSupélec / Université Paris-Saclay) working across machine
+learning, optimal transport and signal processing. I build multimodal methods that combine
+physical sensor models with vision foundation models: estimators with provable guarantees, and
+learned models trained without human labels. IEEE ICASSP paper; two patent applications.
+\vspace{1pt}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Research Experience}
+
+\cventry{PhD Candidate --- Multimodal Fusion \& Optimal Transport}%
+        {L2S, CentraleSupélec / Univ.\ Paris-Saclay \,$\cdot$\, FORVIA}%
+        {October 2024 -- Present}%
+        {Gif-sur-Yvette, France}
+\begin{cvitems}
+  \item \textbf{Dense radar reflectivity from a single image:} showed that regression on CFAR
+        detections is biased with range, since only cells above a rising threshold are reported.
+        Treated the point cloud as a censored measurement: LiDAR locates every radar cell with a
+        surface, undetected cells give upper bounds, and a censored likelihood combines both, with
+        the sensor's range and elevation response calibrated in situ. Frozen DINOv3 + DPT decoder
+        on RADIal; predicts which surfaces the radar detects (AUC 0.85 vs 0.73).
+        \emph{(Paper under review.)}
+  \item \textbf{Unbalanced optimal transport for fusion:} coupled a sparse array estimator with camera
+        detections through a UOT regulariser with a depth-invariant cost on the sphere. Wrote
+        greedy coordinate-descent solvers that handle grids of several hundred thousand points
+        in seconds, and derived the maximum likelihood estimator and Cramér--Rao bounds
+        proving the fusion gain. \emph{(GRETSI 2025, IEEE ICASSP 2026.)}
+  \item \textbf{Training-free camera--radar fusion on real driving data (RADIal):} combined SAM
+        segmentations, learned reflectivity priors and UOT. Proposed a point-in-box evaluation
+        protocol. Precision rises from 4.1\% to 67.2\% at 85.7\% object recall.
+        \emph{(Patent application.)}
+  \item \textbf{Fast 3D radar imaging:} structured solver that scales near-linearly to
+        million-voxel grids, more than 10$\times$ faster than subspace methods, validated on
+        anechoic-chamber hardware. \emph{(Patent application.)}
+\end{cvitems}
+
+\cventry{Computer Vision Research Intern}%
+        {CAOR, Mines Paris -- PSL}%
+        {February 2024 -- July 2024}%
+        {Paris, France}
+\begin{cvitems}
+  \item Vehicle trajectory reconstruction from traffic-camera video fused with LiDAR.
+\end{cvitems}
+
+\cventry{Computer Vision Engineer Intern}%
+        {Enova Robotics}%
+        {Summer 2023}%
+        {Sousse, Tunisia}
+\begin{cvitems}
+  \item LiDAR--camera fusion for 3D object detection (PV-RCNN, BiProDet).
+\end{cvitems}
+
+\PublicationsBlockFull
+
+%----------------------------------------------------------------------------------------
+\cvsection{Skills}
+
+\noindent
+\textbf{Machine learning:} deep learning, vision foundation models (DINOv2, SAM, Depth Anything),
+  LoRA fine-tuning, linear probing, dense prediction, transformers, generative models,
+  self-supervised learning\\
+\textbf{Mathematics:} optimal transport (balanced, unbalanced, entropic), convex and
+  non-convex optimisation, statistical estimation, Cramér--Rao bounds, sparse recovery\\
+\textbf{Tools:} Python, PyTorch, Hugging Face, NumPy/SciPy, C++, MATLAB, SLURM (HPC), Docker, Git\\
+\textbf{Languages:} Arabic (native), French (fluent), English (fluent)
+
+\EducationBlock
+\CertificationBlock
+
+\end{document}

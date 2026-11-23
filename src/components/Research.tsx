@@ -26,8 +26,8 @@ const contributions = [
   },
   {
     title: "Radar reflectivity from a single image",
-    text: "Vision foundation models predict 77 GHz radar cross-section from one RGB image, trained with labels derived from radar physics instead of human annotation.",
-    tag: "Paper in preparation",
+    text: "Predicting how strongly each surface reflects radar from one camera image. Training on radar detections alone is biased with range, so the model also learns from the undetected cells, located with LiDAR, through a censored likelihood.",
+    tag: "Paper under review",
   },
   {
     title: "Camera–radar fusion on real driving data",

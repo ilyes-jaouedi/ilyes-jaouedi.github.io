@@ -1,0 +1,88 @@
+%----------------------------------------------------------------------------------------
+% Ilyes Jaouedi — CV, generic version (public, linked from the website)
+% Public document: no patent-pending method details, no unpublished results, no phone.
+%----------------------------------------------------------------------------------------
+\input{cv-common}
+
+\begin{document}
+
+\cvheader{Machine Learning \& Signal Processing for Radar and Camera Perception}
+
+\noindent
+PhD candidate at L2S (CentraleSupélec / Université Paris-Saclay) in an industrial chair with
+FORVIA. I work from raw radar signals to learned models: high-resolution 3D radar imaging,
+vision foundation models trained on physics-derived labels, and optimal-transport sensor fusion
+with statistical guarantees. IEEE ICASSP paper, two patent applications, Google Cloud certified
+ML engineer.
+\vspace{1pt}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\cventry{PhD Candidate --- Camera--Radar Fusion for ADAS}%
+        {L2S, CentraleSupélec / Univ.\ Paris-Saclay \,$\cdot$\, FORVIA}%
+        {October 2024 -- Present}%
+        {Gif-sur-Yvette, France}
+\begin{cvitems}
+  \item \textbf{Fast high-resolution 3D radar imaging:} dense range--azimuth--elevation images from raw
+        ADC data on million-voxel grids, validated on a TI IWR6843 + DCA1000 in the FORVIA anechoic
+        chamber and on the 192-element RADIal array. \emph{(Patent application.)}
+  \item \textbf{Radar reflectivity from a single image:} showed that training on radar detections is
+        biased with range, and fixed it with a censored likelihood that also uses the undetected cells
+        located with LiDAR. Frozen DINOv3 + DPT decoder on RADIal; predicts which surfaces the radar
+        detects (AUC 0.85 vs 0.73). \emph{(Paper under review.)}
+  \item \textbf{Camera--radar fusion on real driving data:} training-free pipeline on RADIal combining
+        raw radar signals, SAM segmentations and learned reflectivity priors. \emph{(Patent application.)}
+  \item \textbf{Sensor fusion with guarantees:} array--camera fusion via unbalanced optimal transport,
+        with Cramér--Rao bounds proving the gain over each sensor alone. \emph{(IEEE ICASSP 2026.)}
+  \item Co-supervised two interns; taught wave-physics tutorials.
+\end{cvitems}
+
+\cventry{Computer Vision Research Intern (final-year project)}%
+        {CAOR, Mines Paris -- PSL}%
+        {February 2024 -- July 2024}%
+        {Paris, France}
+\begin{cvitems}
+  \item Reconstructed vehicle trajectories by fusing traffic-camera video with LiDAR; built
+        3D reconstruction and tracking pipelines for urban traffic scenes.
+\end{cvitems}
+
+\cventry{Computer Vision Engineer Intern}%
+        {Enova Robotics}%
+        {Summer 2023}%
+        {Sousse, Tunisia}
+\begin{cvitems}
+  \item Implemented and fine-tuned LiDAR--camera fusion models (PV-RCNN, BiProDet) for 3D object detection.
+\end{cvitems}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Selected Projects}
+
+\cvproject{Radar Foundation Model}{Ongoing}%
+  {Self-supervised pretraining (masked autoencoders) of a transformer on raw 4D radar cubes,
+   with no lidar, camera or labels, fine-tuned for occupancy, segmentation and ego-motion.}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Skills}
+
+\noindent
+\textbf{Radar \& signal processing:} FMCW, MIMO virtual arrays (TDM, DDM), CFAR, raw ADC
+  processing, TI mmWave, array processing (beamforming, MUSIC, covariance fitting), estimation
+  theory, Cramér--Rao bounds\\
+\textbf{Machine learning:} PyTorch, Hugging Face, vision foundation models (DINOv2, SAM, Depth
+  Anything), LoRA fine-tuning, self-supervised learning, generative models (flow matching,
+  diffusion transformers), 3D object detection\\
+\textbf{Mathematics:} optimal transport (unbalanced, Sinkhorn), convex and non-convex
+  optimisation, sparse recovery\\
+\textbf{Engineering:} Python, C++, MATLAB, SLURM (HPC, A100), Docker, Git, Linux, Google Cloud
+  (Vertex AI, BigQuery; certified Professional ML Engineer, Generative AI Leader, Associate
+  Data Practitioner)\\
+\textbf{Languages:} Arabic, French, English
+
+\PublicationsBlock
+\cvpub{AISTATS 2027}%
+      {}%
+      {Co-author, sparse training of statistical models (under review); CIFAR-10 experiments.}
+\EducationBlock
+
+\end{document}

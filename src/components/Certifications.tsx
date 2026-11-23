@@ -12,12 +12,32 @@ const certifications = [
     verifyUrl:
       "https://www.credly.com/badges/55072af5-5964-455b-9310-0a770916e7f5/public_url",
   },
+  {
+    name: "Generative AI Leader",
+    issuer: "Google Cloud",
+    date: "2026",
+    description:
+      "Covers how generative AI can be used in a business, Google Cloud's generative AI products, and how to adopt AI responsibly.",
+    badgeImage: "/GAIL.png",
+    verifyUrl:
+      "https://www.credly.com/badges/27745c52-ea91-48d1-8070-5bc5424ce931/public_url",
+  },
+  {
+    name: "Associate Data Practitioner",
+    issuer: "Google Cloud",
+    date: "2026",
+    description:
+      "Covers managing and securing data on Google Cloud: data ingestion, transformation, pipelines, analysis, machine learning and visualization.",
+    badgeImage: "/ADP.png",
+    verifyUrl:
+      "https://www.credly.com/badges/f98a92be-76c2-45b0-b820-17678cf4b580/public_url",
+  },
 ];
 
 export default function Certifications() {
   return (
     <div id="certifications" className="mt-8">
-      <p className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">Certification</p>
+      <p className="text-xs font-mono text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-3">Certifications</p>
       <div className="flex flex-col gap-4">
         {certifications.map((cert) => (
           <div

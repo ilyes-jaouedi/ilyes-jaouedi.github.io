@@ -1,0 +1,84 @@
+%----------------------------------------------------------------------------------------
+% Ilyes Jaouedi — CV, ADAS / Perception Engineer version
+%----------------------------------------------------------------------------------------
+\input{cv-common}
+
+\begin{document}
+
+\cvheader{Perception Engineer --- Camera, Radar \& LiDAR Fusion for ADAS}
+
+\noindent
+PhD candidate in camera--radar fusion for ADAS (with FORVIA), with prior internships in
+LiDAR--camera 3D detection and tracking. I have worked with camera, imaging radar and LiDAR,
+from raw sensor data to fused 3D output. Two patent applications with FORVIA.
+\vspace{1pt}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\cventry{PhD Candidate --- Camera--Radar Fusion for ADAS}%
+        {L2S, CentraleSupélec / Univ.\ Paris-Saclay \,$\cdot$\, FORVIA}%
+        {October 2024 -- Present}%
+        {Gif-sur-Yvette, France}
+\begin{cvitems}
+  \item \textbf{Camera--radar fusion on RADIal:} built a training-free pipeline that fuses raw
+        radar antenna signals with camera detections and segmentations (SAM). Point precision
+        rises from 4.1\% (CFAR baseline) to 67.2\% at 85.7\% object recall, measured with a
+        point-in-box protocol I designed. \emph{(Patent application.)}
+  \item \textbf{High-resolution 3D radar imaging:} dense range--azimuth--elevation point clouds
+        from raw ADC data, more than 10$\times$ faster than MUSIC-FBSS; validated on a TI IWR6843
+        + DCA1000 in the FORVIA anechoic chamber ($<$4\,cm error) and on the 192-element RADIal
+        array. \emph{(Patent application.)}
+  \item \textbf{Radar-aware camera model:} predicts radar reflectivity from a single camera image
+        (frozen DINOv3 + DPT decoder), trained on radar detections and undetected cells with a
+        censored likelihood that removes the range bias; AUC 0.85 vs 0.73 for detection
+        prediction. \emph{(Paper under review.)}
+  \item \textbf{Sensor fusion with guarantees:} array--camera fusion via unbalanced optimal
+        transport, with Cramér--Rao bounds proving the gain over each sensor alone.
+        \emph{(IEEE ICASSP 2026.)}
+\end{cvitems}
+
+\cventry{Computer Vision Research Intern}%
+        {CAOR, Mines Paris -- PSL}%
+        {February 2024 -- July 2024}%
+        {Paris, France}
+\begin{cvitems}
+  \item Reconstructed vehicle trajectories by fusing traffic-camera video with LiDAR; built
+        3D reconstruction and tracking pipelines for urban traffic scenes.
+\end{cvitems}
+
+\cventry{Computer Vision Engineer Intern}%
+        {Enova Robotics}%
+        {Summer 2023}%
+        {Sousse, Tunisia}
+\begin{cvitems}
+  \item Implemented, benchmarked and fine-tuned LiDAR--camera fusion models (PV-RCNN, BiProDet)
+        for 3D object detection on custom robotic datasets.
+\end{cvitems}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Selected Projects}
+
+\cvproject{Real-time Object Detection --- YOLOv8}{Deployment}%
+  {Fine-tuning pipeline with TensorRT export and real-time video inference.}
+\cvproject{RadarFlows --- Synthetic Radar Generation}{Data augmentation}%
+  {Generates realistic radar maps from camera images and 3D detections, for data augmentation.}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Skills}
+
+\noindent
+\textbf{Perception:} camera--radar and LiDAR--camera fusion, 3D object detection, object
+  tracking, point clouds, segmentation, camera calibration and projection models\\
+\textbf{Radar:} FMCW MIMO (TDM, DDM), range--Doppler--angle processing, CFAR, raw ADC data,
+  TI mmWave, RCS\\
+\textbf{Data:} RADIal (raw automotive radar + camera), own anechoic-chamber radar recordings\\
+\textbf{ML \& deployment:} PyTorch, vision foundation models (SAM, DINOv2, Depth Anything),
+  ONNX/TensorRT, OpenCV\\
+\textbf{Programming:} Python, C++, MATLAB, Docker, Git, SLURM, Linux\\
+\textbf{Languages:} Arabic (native), French (fluent), English (fluent)
+
+\PublicationsBlock
+\EducationBlock
+
+\end{document}

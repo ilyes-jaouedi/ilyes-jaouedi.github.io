@@ -1,0 +1,142 @@
+%----------------------------------------------------------------------------------------
+% Ilyes Jaouedi — shared CV base (preamble, helpers, common blocks)
+% Included by cv-research.tex, cv-radar.tex, cv-adas.tex, cv-mle.tex
+%----------------------------------------------------------------------------------------
+\documentclass[a4paper, 10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, top=0.9cm, bottom=0.9cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{mathpazo}
+\linespread{1.02}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\hypersetup{colorlinks=true, urlcolor=black}
+
+%----------------------------------------------------------------------------------------
+% HELPERS
+%----------------------------------------------------------------------------------------
+
+% Section header: text + rule filling to the right
+\newcommand{\cvsection}[1]{%
+  \vspace{5pt}%
+  \par\noindent{\large #1}\hspace{0.5em}\hrulefill\par%
+  \vspace{2pt}%
+}
+
+% Entry: #1 role  #2 organisation  #3 period  #4 location
+\newcommand{\cventry}[4]{%
+  \par\noindent\textbf{#1}\hfill\textit{#2}\\[1pt]%
+  \textit{#3}\hfill{\small #4}\par%
+  \vspace{1pt}%
+}
+
+% Publication row: fixed-width bold venue | authors | italic title
+\newcommand{\cvpub}[3]{%
+  \par\noindent\hangindent=10.8em\hangafter=1%
+  \makebox[10.4em][l]{\textbf{#1}}\ifx&#2&\else#2.\enspace\fi\textit{#3}\par%
+  \vspace{2pt}%
+}
+
+% Project row: #1 title  #2 short context (right-aligned)  #3 description
+\newcommand{\cvproject}[3]{%
+  \par\noindent\textbf{#1}\hfill{\small\textit{#2}}\\[1pt]%
+  #3\par%
+  \vspace{3pt}%
+}
+
+% Tight bullet list
+\newenvironment{cvitems}{%
+  \begin{itemize}[leftmargin=1.2em, itemsep=1pt, topsep=2pt, parsep=0pt]
+}{%
+  \end{itemize}\vspace{3pt}%
+}
+
+%----------------------------------------------------------------------------------------
+% HEADER — #1 is the per-version tagline
+%----------------------------------------------------------------------------------------
+\newcommand{\cvheader}[1]{%
+  \begin{center}
+    {\huge Ilyes Jaouedi}\\[3pt]
+    {\small\scshape #1}\\[5pt]
+    {\small
+      \faEnvelope\enspace\href{mailto:ilyes.jaouedi@centralesupelec.fr}{ilyes.jaouedi@centralesupelec.fr}
+      \quad\textbar\quad
+      \faGlobe\enspace\href{https://ilyes-jaouedi.github.io}{ilyes-jaouedi.github.io}
+      \quad\textbar\quad
+      \faGithub\enspace\href{https://github.com/ilyes-jaouedi}{ilyes-jaouedi}
+      \quad\textbar\quad
+      \faLinkedinIn\enspace\href{https://linkedin.com/in/ilyes-jaouedi}{ilyes-jaouedi}
+    }\\[2pt]
+    {\small\faMapMarker*\enspace Paris area, France
+      \quad\textbar\quad
+      \textbf{Available for a permanent position (CDI) from mid-2027}}
+  \end{center}
+  \vspace{1pt}%
+}
+
+%----------------------------------------------------------------------------------------
+% SHARED BLOCKS
+%----------------------------------------------------------------------------------------
+
+% Compact education block: one line per degree
+\newcommand{\cvedu}[3]{%
+  \par\noindent\textbf{#1}, #2\hfill\textit{#3}\par\vspace{1pt}%
+}
+\newcommand{\EducationBlock}{%
+  \cvsection{Education}
+  \cvedu{PhD, Signal Processing \& AI}{Université Paris-Saclay (L2S, CentraleSupélec)}{2024 -- 2027}
+  {\small\hspace{1em}\emph{Sensor Fusion via Optimal Transport for Driver Assistance}.
+   Supervisors: G.~Chardon, J.~Picheral.}\par\vspace{2pt}
+  \cvedu{Engineering Degree, Signal Processing \& Systems}{Polytechnique de Tunisie (ranked 1\textsuperscript{st}, final year)}{2021 -- 2024}
+  \cvedu{Preparatory Cycle, Maths \& Physics}{IPEIM Monastir (ranked 38\textsuperscript{th}/1800 nationally)}{2019 -- 2021}
+}
+
+% Publications, patents and preprints
+\newcommand{\PublicationsBlock}{%
+  \cvsection{Publications \& Patents}
+  \cvpub{IEEE ICASSP 2026}%
+        {\textbf{I.~Jaouedi}, G.~Chardon, J.~Picheral}%
+        {Sensor Array and Camera Fusion via Unbalanced Optimal Transport for 3D Source
+         Localization. Barcelona. \href{https://hal.science/hal-05572212v1}{hal-05572212}}
+  \cvpub{GRETSI 2025}%
+        {\textbf{I.~Jaouedi}, G.~Chardon, J.~Picheral}%
+        {Fusion Acoustique--Visuelle par Transport Optimal. Strasbourg.
+         \href{https://hal.science/hal-05273990}{hal-05273990}}
+  \cvpub{Patent (FR) 2026}%
+        {}%
+        {Two French patent applications with FORVIA and CentraleSupélec (fast 3D radar imaging;
+         camera--radar fusion). Filing in progress.}
+}
+% Full version adds work in preparation (research CV)
+\newcommand{\PublicationsBlockFull}{%
+  \PublicationsBlock
+  \cvpub{Under review}%
+        {}%
+        {Computer-vision paper on learning dense radar reflectivity from images.}
+  \cvpub{In preparation}%
+        {}%
+        {IEEE journal extension of the ICASSP paper; two further papers pending patent filing.}
+}
+
+\newcommand{\CertificationBlock}{%
+  \cvsection{Certifications}
+  \cvpub{Google Cloud 2025}%
+        {}%
+        {Professional Machine Learning Engineer ---
+         \href{https://www.credly.com/badges/55072af5-5964-455b-9310-0a770916e7f5/public_url}{Verified on Credly}}
+  \cvpub{Google Cloud 2026}%
+        {}%
+        {Generative AI Leader ---
+         \href{https://www.credly.com/badges/27745c52-ea91-48d1-8070-5bc5424ce931/public_url}{Verified on Credly};
+         Associate Data Practitioner ---
+         \href{https://www.credly.com/badges/f98a92be-76c2-45b0-b820-17678cf4b580/public_url}{Verified on Credly}}
+}

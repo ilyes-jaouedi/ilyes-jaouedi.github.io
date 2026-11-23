@@ -1,0 +1,83 @@
+%----------------------------------------------------------------------------------------
+% Ilyes Jaouedi — CV, Radar / Signal Processing version
+%----------------------------------------------------------------------------------------
+\input{cv-common}
+
+\begin{document}
+
+\cvheader{Radar Signal Processing Engineer --- Array Processing \& Sensor Fusion}
+
+\noindent
+Signal processing researcher specialising in FMCW MIMO radar imaging, array processing and
+sensor fusion. My PhD, run with FORVIA, covers the whole chain: raw ADC acquisition,
+high-resolution 3D imaging, statistical performance bounds, and camera--radar fusion on real
+driving data. Two patent applications and an IEEE ICASSP paper.
+\vspace{1pt}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\cventry{PhD Candidate --- Radar Imaging \& Sensor Fusion for ADAS}%
+        {L2S, CentraleSupélec / Univ.\ Paris-Saclay \,$\cdot$\, FORVIA}%
+        {October 2024 -- Present}%
+        {Gif-sur-Yvette, France}
+\begin{cvitems}
+  \item \textbf{Fast 3D FMCW radar imaging:} designed a high-resolution imaging algorithm based on
+        covariance matrix fitting that images range, azimuth and elevation jointly on grids of
+        millions of voxels, with no detect-then-estimate step. Near-linear scaling: 1M-point
+        grid in $\sim$11\,s. \emph{(Patent application.)}
+  \item \textbf{Real hardware:} ran measurement campaigns in the FORVIA anechoic chamber with a TI
+        IWR6843ISK-ODS (60--64\,GHz, 3\,Tx\,$\times$\,4\,Rx TDM-MIMO) and DCA1000EVM raw ADC
+        capture. Localised corner reflectors to $<$4\,cm and separated targets 8\,cm apart
+        in range, more than 10$\times$ faster than MUSIC-FBSS.
+  \item \textbf{Automotive data:} RADIal dataset (12\,Tx\,$\times$\,16\,Rx DDM-MIMO, non-uniform
+        192-element virtual array): calibrated dictionaries, PSF analysis, dense 3D point clouds.
+  \item \textbf{Array--camera fusion:} regularised covariance matrix fitting with an unbalanced
+        optimal transport term driven by camera detections. Derived the joint maximum likelihood
+        estimator and Cramér--Rao bounds proving the fusion gain; validated in simulation and
+        on real microphone-array data. \emph{(ICASSP 2026.)}
+  \item \textbf{Camera--radar fusion on RADIal:} training-free pipeline that raises point precision
+        from 4.1\% (CFAR) to 67.2\% at 85.7\% object recall. \emph{(Patent application.)}
+  \item \textbf{Radar physics from images:} predicted radar reflectivity from a single image with a
+        censored likelihood over CFAR detections and undetected cells located with LiDAR, removing
+        the range bias of regression on detections (AUC 0.85 vs 0.73). \emph{(Paper under review.)}
+\end{cvitems}
+
+\cventry{Computer Vision Research Intern}%
+        {CAOR, Mines Paris -- PSL}%
+        {February 2024 -- July 2024}%
+        {Paris, France}
+\begin{cvitems}
+  \item Reconstructed vehicle trajectories by fusing traffic-camera video with LiDAR; 3D
+        reconstruction and tracking.
+\end{cvitems}
+
+\cventry{Computer Vision Engineer Intern}%
+        {Enova Robotics}%
+        {Summer 2023}%
+        {Sousse, Tunisia}
+\begin{cvitems}
+  \item Implemented LiDAR--camera fusion models (PV-RCNN, BiProDet) for 3D object detection.
+\end{cvitems}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Skills}
+
+\noindent
+\textbf{Radar:} FMCW, MIMO virtual arrays (TDM, DDM), range--Doppler--angle processing, CFAR,
+  radar range equation and RCS, raw ADC processing, TI mmWave (IWR6843, DCA1000), anechoic
+  chamber measurements\\
+\textbf{Array \& statistical SP:} beamforming, subspace methods (MUSIC, spatial smoothing),
+  sparse recovery, covariance matrix fitting, maximum likelihood, Cramér--Rao bounds,
+  FFT-based fast algorithms, calibration\\
+\textbf{Optimisation \& fusion:} optimal transport (unbalanced, Sinkhorn), coordinate descent,
+  convex optimisation, camera--radar and LiDAR--camera fusion\\
+\textbf{ML \& vision:} PyTorch, vision foundation models (Depth Anything V2, DINOv2, SAM),
+  3D object detection\\
+\textbf{Programming:} Python (NumPy, SciPy), MATLAB, C++, Git, Docker, SLURM\\
+\textbf{Languages:} Arabic (native), French (fluent), English (fluent)
+
+\PublicationsBlock
+\EducationBlock
+
+\end{document}

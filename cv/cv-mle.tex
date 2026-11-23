@@ -1,0 +1,81 @@
+%----------------------------------------------------------------------------------------
+% Ilyes Jaouedi — CV, Machine Learning Engineer (applied) version
+%----------------------------------------------------------------------------------------
+\input{cv-common}
+
+\begin{document}
+
+\cvheader{Machine Learning Engineer --- Computer Vision, LLM Agents \& MLOps}
+
+\noindent
+PhD candidate (Université Paris-Saclay, with FORVIA) and Google Cloud certified Professional
+ML Engineer. I take models from research to working systems: fine-tuning vision foundation
+models, optimising inference, and building LLM agents with FastAPI, Docker and Vertex AI.
+\vspace{1pt}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\cventry{PhD Candidate --- ML for Automotive Perception}%
+        {L2S, CentraleSupélec / Univ.\ Paris-Saclay \,$\cdot$\, FORVIA}%
+        {October 2024 -- Present}%
+        {Gif-sur-Yvette, France}
+\begin{cvitems}
+  \item Trained a frozen DINOv3 + DPT decoder to predict radar reflectivity from a single camera
+        image. Showed that training on radar detections is biased with range, and fixed it with a
+        censored likelihood that also uses undetected cells located with LiDAR: predicts which
+        surfaces the radar detects (AUC 0.85 vs 0.73). \emph{(Paper under review.)}
+  \item Built a training-free camera--radar fusion pipeline on real driving data (RADIal) using
+        SAM segmentations: precision rises from 4.1\% to 67.2\% at 85.7\% recall. Designed
+        the evaluation protocol. \emph{(Patent application.)}
+  \item Engineered solvers that scale near-linearly to million-point grids, more than
+        10$\times$ faster than the standard baseline. \emph{(Patent application; IEEE ICASSP 2026.)}
+\end{cvitems}
+
+\cventry{Computer Vision Research Intern}%
+        {CAOR, Mines Paris -- PSL}%
+        {February 2024 -- July 2024}%
+        {Paris, France}
+\begin{cvitems}
+  \item Vehicle trajectory reconstruction from traffic-camera video fused with LiDAR.
+\end{cvitems}
+
+\cventry{Computer Vision Engineer Intern}%
+        {Enova Robotics}%
+        {Summer 2023}%
+        {Sousse, Tunisia}
+\begin{cvitems}
+  \item Implemented and fine-tuned LiDAR--camera 3D detection models (PV-RCNN, BiProDet).
+\end{cvitems}
+
+%----------------------------------------------------------------------------------------
+\cvsection{Selected Projects}
+
+\cvproject{Gemini Voice Orchestrator}{Gemini Live API, FastAPI, WebSockets}%
+  {Real-time voice agent (Gemini 2.0 Flash Live): bidirectional audio, parallel tool routing
+   across CRM, inventory and logistics systems with async task queues.}
+\cvproject{Financial Intelligence Copilot}{Google ADK, BigQuery, FastAPI}%
+  {LLM agent for fraud investigation: turns analyst requests into BigQuery queries, detects
+   layering and round-trip transaction patterns, and writes structured investigation reports.}
+\cvproject{Real-time Object Detection --- YOLOv8}{PyTorch, TensorRT}%
+  {Fine-tuning pipeline with TensorRT export and real-time video inference.}
+
+\CertificationBlock
+
+%----------------------------------------------------------------------------------------
+\cvsection{Skills}
+
+\noindent
+\textbf{ML \& vision:} PyTorch, Hugging Face, transformers, vision foundation models (SAM,
+  DINOv2, Depth Anything), LoRA fine-tuning, object detection, OpenCV\\
+\textbf{LLMs \& agents:} Google ADK, Gemini API (incl.\ Live), Claude API, tool calling, RAG
+  (ChromaDB)\\
+\textbf{MLOps \& cloud:} Google Cloud Platform, Vertex AI, BigQuery, Docker, FastAPI,
+  ONNX/TensorRT, SLURM, Git\\
+\textbf{Programming:} Python, C++, MATLAB, Bash\\
+\textbf{Languages:} Arabic (native), French (fluent), English (fluent)
+
+\PublicationsBlock
+\EducationBlock
+
+\end{document}
